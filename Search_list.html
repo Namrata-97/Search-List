@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+* {
+  box-sizing: border-box;
+}
+
+#myInput {
+ /* background-image: url('/css/searchicon.png');*/
+  background-position: 10px 12px;
+  background-repeat: no-repeat;
+  width: 100%;
+  font-size: 16px;
+  padding: 12px 20px 12px 40px;
+  border: 1px solid #ddd;
+  margin-bottom: 12px;
+}
+
+#myUL {
+  list-style-type: none;
+  padding: 10px;
+  margin: 0;
+}
+
+#myUL li a {
+  border: 1px solid #ddd;
+  margin-top: -1px; 
+  background-color: #f6f6f6;
+  padding: 12px;
+  text-decoration: none;
+  font-size: 18px;
+  color: black;
+  display: block;
+  object-fit:contain;
+  margin-left:500px;
+  
+
+  
+}
+
+#myUL li a:hover:not(.header) {
+  background-color: #eee;
+}
+img{
+    height:100px;
+    width:100px;
+}
+.grid-container {
+  display: grid;
+  grid-column-gap: 50px;
+  grid-template-columns: auto auto auto;
+  background-color:lightblue;
+  padding: 10px;
+  
+}
+h1{
+  margin-left:580px;
+
+}
+</style>
+</head>
+<body>
+
+<h1>My Searchlist</h1>
+<h4>Click on items to know more</h4>
+
+<input type="text" id="myInput" onclick="myFunction()" placeholder="Search for items.." title="Search items">
+<div class="grid-container">
+<ul id="myUL">
+   <li><a onclick="alert('You will redirect to another page')" href="https://en.wikipedia.org/wiki/Mobile_phone">Phone<img src="Phone.png" alt="Phone"></a></li>
+  <li><a onclick="alert('You will redirect to another page')" href="https://en.wikipedia.org/wiki/Laptop">Laptop<img src="Laptop.png" alt="Laptop"></a></li>
+
+  <li><a onclick="alert('You will redirect to another page')" href="https://en.wikipedia.org/wiki/Book">Book<img src="Book.png" alt="Book"></a></li>
+  <li><a onclick="alert('You will redirect to another page')" href="https://en.wikipedia.org/wiki/File_system">File<img src="File.png" alt="File"></a></li>
+
+  <li><a onclick="alert('You will redirect to another page')" href="https://en.wikipedia.org/wiki/Pen#:~:text=A%20pen%20is%20a%20common,a%20nib%20dipped%20in%20ink.&text=Modern%20types%20include%20ballpoint%2C%20rollerball,felt%20or%20ceramic%20tip%20pens.">Pen<img src="Pen.png" alt="Pen"></a></li>
+  <li><a onclick="alert('You will redirect to another page')" href="https://en.wikipedia.org/wiki/Table_(information)#:~:text=A%20table%20is%20an%20arrangement,signs%2C%20and%20many%20other%20places.">Table<img src="Table.png" alt="Table"></a></li>
+  <li><a onclick="alert('You will redirect to another page')" href="https://en.wikipedia.org/wiki/Printer_(computing)">Printer<img src="Printer.png" alt="Printer"></a></li>
+</ul>
+
+</div>
+
+<script>
+function myFunction() {
+    var input, filter, ul, li, a, i, txtValue;
+    input = document.getElementById("myInput");
+    filter = input.value.toUpperCase();
+    ul = document.getElementById("myUL");
+    li = ul.getElementsByTagName("li");
+  
+    for (i = 0; i < li.length; i++) {
+        a = li[i].getElementsByTagName("a")[0];
+        txtValue = a.textContent || a.innerText;
+        if (txtValue.toUpperCase().indexOf(filter) > -1) {
+            li[i].style.display = "";
+        } 
+        else {
+
+            li[i].style.display = "none";
+             }
+        }
+}
+</script>
+
+</body>
+</html>
